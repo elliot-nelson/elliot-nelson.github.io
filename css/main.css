@@ -791,7 +791,8 @@ td.gutter {
   border: solid 1px #333;
   border-top: 3px solid #7abb69;
   color: #111;
-  margin: 20px 20px 20px 5px;
+  display: block;
+  margin: 20px auto 20px auto;
   padding: 16px;
 }
 

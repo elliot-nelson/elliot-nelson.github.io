@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Web Audio API, Part 1"
+title: Web Audio API, Part 1
 subtitle: Creating simple music using the Web Audio API
-#gh-repo: daattali/beautiful-jekyll
-#gh-badge: [star, fork, follow]
 tags: [javascript, js13k]
 ---
 

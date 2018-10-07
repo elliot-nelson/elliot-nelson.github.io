@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I'm back!"
+title: I'm back!
 subtitle: Resurrecting the personal blog
 tags: [javascript, js13k]
 ---
