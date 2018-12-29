@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Smoother advzip
+title: Smoother gulp advzip
 subtitle: Streamline advzip usage in your gulp build
 tags: [javascript, js13k, gulp]
 ---
