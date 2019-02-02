@@ -138,7 +138,7 @@ envelope can be modified by playing with the values I chose above. Check out the
 how you can get quite different sounds, not by modifying frequency or length in any way, but just by
 playing with the sound's envelope:
 
-![Picturing sound envelopes](/assets/images/post-sound-envelopes.png)
+![Picturing sound envelopes](/assets/post/sound-envelopes.png)
 
 {: .notice.text-center }
 <button class="btn btn--large btn--success" onclick="example4.run(0.1,0.9,0.99)"><i class="fa fa-play"></i> 0-10-90-99</button>

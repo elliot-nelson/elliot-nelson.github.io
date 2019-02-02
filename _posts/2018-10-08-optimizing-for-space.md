@@ -130,7 +130,7 @@ example, check out these 3 simple sprites for an imaginary game involving missil
 and frogs:
 
 {: .notice.text-center }
-![example sprite sheet](/assets/images/spritesheet.png)
+![example sprite sheet](/assets/post/spritesheet.png)
 
 ```text
 # 3 Separate 64x64 PNGs (after minifying)
