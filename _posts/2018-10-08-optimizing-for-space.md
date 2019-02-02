@@ -9,7 +9,7 @@ In the [js13kgames competition](http://js13kgames.com), you have 30 days to prod
 bundled into a ZIP file of no more than 13,312 bytes. If you find yourself frequently running into this
 limit, here's a collection of tips and tricks that might help.
 
-### 1. Minify your game files
+## 1. Minify your game files
 
 This is the obvious one, and usually the first thing to tackle.
 
@@ -80,7 +80,7 @@ to do this is to insert a `gulp-concat` step to smash all your javascript files 
 one of the packers, like [webpack](https://webpack.js.org/), [rollup](https://rollupjs.org/guide/en), or
 [parcel](https://parceljs.org/), but be conscious of shims and boilerplate code - see suggestion #7 below.
 
-### 2. Use eslint to spot unnecessary code
+## 2. Use eslint to spot unnecessary code
 
 With the naked eye, it can be hard to pick out variables or properties you ended up not using. Consider
 adding `eslint`/`gulp-eslint` to your project to help flush those things out.
@@ -116,7 +116,7 @@ Feel free to turn on whatever other eslint rules you like based on your own pref
 above are the most likely to save you space, but other rules can still be helpful in keeping your
 code clean and/or finding potential bugs.
 
-### 3. Use sprite sheets
+## 3. Use sprite sheets
 
 As far as bang for the buck goes, if you have any images at all, this is a big one.
 
@@ -153,7 +153,7 @@ depend on your graphics (a CSS-based game can use standard CSS sprite techniques
 a Canvas-based game will use the long version of `drawImage`, which lets you specify the
 `x`, `y`, `width`, and `height` of the source sprite within your sprite sheet).
 
-### 4. Simplify your images
+## 4. Simplify your images
 
 Due to the way PNGs are compressed, images with long blocks or runs of identical color
 will produce much smaller file sizes. Try to pick a specific palette and use those colors
@@ -164,7 +164,7 @@ Try doing a google image search for `cel shading` to see some examples of art th
 few colors (and large blocks of color). Hopefully, you are a better artist than me, because
 I have very little advice to give you here!
 
-### 5. Generate art from code
+## 5. Generate art from code
 
 This is very dependent on what look you're going for and what assets you need. Just be aware
 that often, the _code_ to draw a simple crosshair on the screen is probably smaller than
@@ -182,7 +182,7 @@ primitives might end up much slower than a single `drawImage`. Do your own testi
 but in some cases, it may be better to deal with the space cost of the PNG than the
 performance cost of drawing with primitives.
 
-### 6. Mangle your properties
+## 6. Mangle your properties
 
 By the time your game is complete, your code is full of more or less expressive property
 and method names - code like `player.x += player.getNewVelocityX(game.deltaTime)` contains
@@ -229,7 +229,7 @@ You can put pretty much anything in that regex, so if you use certain method nam
 want underscores everywhere in your code, feel free to add them in to mark them OK to mangle: for example,
 `regex: /^_|^render|^update|^drawSprite/`.
 
-### 7. Lose the shims
+## 7. Lose the shims
 
 While you're in there examining your minified output javascript, take a close look at the top of the file
 and see how much (if any) boilerplate there is. Most packing utilities and even transpilers end up
@@ -241,7 +241,7 @@ you are in one particular build pipeline. For what it's worth, I think the pipel
 smallest possible build currently is to target basic ES6 javascript, with terser, and concatenate your
 javascript files together, with no packing tools.
 
-### 8. Mangled 2: More mangling
+## 8. Mangled 2: More mangling
 
 When you need to wring maximum space out of your code, one way to do it is to abandon
 marking properties as "safe to mangle", and instead mark properties that _aren't_ safe to
@@ -295,7 +295,7 @@ make sure not to reuse names like `slice`, `length`, etc. for your own propertie
 fine, but those properties won't get mangled! Pick different names, or use the underscore trick from
 above (`_length`).
 
-### 9. Advanced compression
+## 9. Advanced compression
 
 The `AdvanceCOMP` project, available from [AdvanceMAME](https://www.advancemame.it/download), gives two
 useful utilities for further compressing your images and ZIP files. If you're on Mac or
@@ -329,7 +329,7 @@ advzip -4 -i 5000 -z game.zip
 
 One way to integrate `advpng` and/or `advzip` into your build pipeline is by using the `gulp-shell` package.
 
-### 10. Use the same core functions for similar tasks
+## 10. Use the same core functions for similar tasks
 
 I consider this a "last resort", but I did say we were making the _smallest possible_ ZIP file here...
 
@@ -345,6 +345,6 @@ how far you want to take it is up to you. My recommendation would be to stop sho
 step and consider cutting a feature, shortening a music loop, simplifying a sprite, dropping a
 level, doing anything other than butchering your own poor, defenseless source code...
 
-### That's it!
+## That's it!
 
 Have you discovered a trick for shaving a few bytes off your ZIP file? Feel free to post a comment below.

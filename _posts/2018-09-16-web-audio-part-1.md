@@ -85,7 +85,7 @@ play(ctx.destination, 366.90, ctx.currentTime + 0.6, 0.2);
 
 Hey, that actually sounds like music!
 
-### Eliminating audio "clicks"
+## Eliminating audio "clicks"
 
 Before we continue, let's talk about that clicking. Depending on your current browser, the example above
 may have distracting clicks at the either the front or back of each note (or both). Our oscillator, which
@@ -146,7 +146,7 @@ playing with the sound's envelope:
 <button class="btn btn--large btn--success" onclick="example4.run(0.2,0.4,0.99)"><i class="fa fa-play"></i> 0-20-40-99</button>
 <button class="btn btn--large btn--success" onclick="example4.run(0.05,0.2,0.99)"><i class="fa fa-play"></i> 0-5-20-99</button>
 
-### Some notes about frequency
+## Some notes about frequency
 
 The frequency of a note is measured in Hz, or cycles per second. Exactly how pitch and frequency work,
 and musical theories behind what notes sound good together, all of that is out of scope for this tutorial;
@@ -220,7 +220,7 @@ function play(node, note, start, length) {
 cents represent a _difference between two frequencies_. Given an initial frequency `f1`, and a cents value `c`,
 you can compute the modified frequency `f2 = f1 * Math.pow(2, c / 100)`.
 
-### Playing overlapping notes
+## Playing overlapping notes
 
 Sometimes it's nice to play some overlapping notes. That would be difficult with our current code, because
 we're modifying the volume to represent our sound's envelope; we can't have two different notes trying to
@@ -256,7 +256,7 @@ var index = 0;
 {: .notice.text-center }
 <button class="btn btn--large btn--success" id="example6" onclick="example6.run()"><i class="fa fa-play"></i> Play</button>
 
-### Scheduling your song
+## Scheduling your song
 
 In the real world, you typically don't want to schedule an entire song's worth of notes ahead of time. You want
 to be able to start and stop, you probably want to be able to loop around to the beginning if you reach the
@@ -301,7 +301,7 @@ your tab, your `nextNoteTick` value may be minutes _behind_ `ctx.currentTime`. T
 in this case is to check for it in your function, and fast-forward `nextNoteTick` to the
 current time if it is more than a second or two behind.
 
-### Next steps
+## Next steps
 
 This guide only scratches the surface of what's possible with the Web Audio API.
 I recommend jumping into a more general tutorial, like [Getting Started with Web
