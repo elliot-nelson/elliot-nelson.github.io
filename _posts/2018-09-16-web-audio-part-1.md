@@ -1,13 +1,13 @@
 ---
-layout: post
 title: Web Audio API, Part 1
-subtitle: Creating simple music using the Web Audio API
 tags: [javascript, js13k]
 ---
 
+## Creating simple music using the Web Audio API
+
 So, you've never used the Web Audio API before, and you want to add some music to your small javascript project / game / js13k entry? Let's jump straight into it and make a noise.
 
-```javascript
+```js
 // Create an audio context
 var ctx = new AudioContext();
 
@@ -27,14 +27,14 @@ o.start(ctx.currentTime);
 o.stop(ctx.currentTime + 0.5);
 ```
 
-{: .box-jsdemo.center }
-<button class="demo" id="example1" onclick="example1.run()"><i class="fa fa-play"></i> Play</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" id="example1" onclick="example1.run()"><i class="fa fa-play"></i> Play</button>
 
 Pretty simple! Note that when you set up an oscillator, you specify when in the future to start (in the case
 above, we're asking the audio context to start _right now_). That means you can schedule lots of future notes
 at once. Let's extend the example above to play a few more frequencies.
 
-```javascript
+```js
 // Create 3 notes. Each note has a different frequency value, and each note
 // stops and starts at a different time.
 
@@ -57,13 +57,13 @@ o3.start(ctx.currentTime + 1);
 o3.stop(ctx.currentTime + 1.5);
 ```
 
-{: .box-jsdemo.center }
-<button class="demo" id="example2" onclick="example2.run()"><i class="fa fa-play"></i> Play</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" id="example2" onclick="example2.run()"><i class="fa fa-play"></i> Play</button>
 
 These examples are going to get really long if we keep repeating ourselves like this, so let's make a function
 to encapsulate playing a note.
 
-```javascript
+```js
 function play(node, frequency, start, length) {
     // Note how we pass in what "audio node" to connect our oscillator to,
     // that'll be useful shortly!
@@ -80,8 +80,8 @@ play(ctx.destination, 346.13, ctx.currentTime + 0.4, 0.2);
 play(ctx.destination, 366.90, ctx.currentTime + 0.6, 0.2);
 ```
 
-{: .box-jsdemo.center }
-<button class="demo" id="example3" onclick="example3.run()"><i class="fa fa-play"></i> Play</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" id="example3" onclick="example3.run()"><i class="fa fa-play"></i> Play</button>
 
 Hey, that actually sounds like music!
 
@@ -97,7 +97,7 @@ We can create an envelope for our notes by managing _gain_ (volume). To do that,
 an audio gain node, and connect our oscillator notes to the gain node. Then we will add some additional
 logic to our play function, which will micro-manage the volume over time:
 
-```javascript
+```js
 // Create a "gain node", which we'll use to play our notes
 var gainNode = ctx.createGain();
 gainNode.connect(ctx.destination);
@@ -130,21 +130,21 @@ play(gainNode, 346.13, ctx.currentTime + 0.4, 0.2);
 play(gainNode, 366.90, ctx.currentTime + 0.6, 0.2);
 ```
 
-{: .box-jsdemo.center }
-<button class="demo center" id="example4" onclick="example4.run(0.1,0.9,0.99)"><i class="fa fa-play"></i> Play</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" onclick="example4.run(0.1,0.9,0.99)"><i class="fa fa-play"></i> Play</button>
 
 Try alternating between the previous demo and this one to see the difference. Note that the feel of this
 envelope can be modified by playing with the values I chose above. Check out the examples below to see
 how you can get quite different sounds, not by modifying frequency or length in any way, but just by
 playing with the sound's envelope:
 
-![Picturing sound envelopes](/img/post-sound-envelopes.png)
+![Picturing sound envelopes](/assets/images/post-sound-envelopes.png)
 
-{: .box-jsdemo.center }
-<button class="demo center" id="example4" onclick="example4.run(0.1,0.9,0.99)"><i class="fa fa-play"></i> 0-10-90-99</button>
-<button class="demo center" id="example4" onclick="example4.run(0.7,0.9,0.99)"><i class="fa fa-play"></i> 0-70-90-99</button>
-<button class="demo center" id="example4" onclick="example4.run(0.2,0.4,0.99)"><i class="fa fa-play"></i> 0-20-40-99</button>
-<button class="demo center" id="example4" onclick="example4.run(0.05,0.2,0.99)"><i class="fa fa-play"></i> 0-5-20-99</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" onclick="example4.run(0.1,0.9,0.99)"><i class="fa fa-play"></i> 0-10-90-99</button>
+<button class="btn btn--large btn--success" onclick="example4.run(0.7,0.9,0.99)"><i class="fa fa-play"></i> 0-70-90-99</button>
+<button class="btn btn--large btn--success" onclick="example4.run(0.2,0.4,0.99)"><i class="fa fa-play"></i> 0-20-40-99</button>
+<button class="btn btn--large btn--success" onclick="example4.run(0.05,0.2,0.99)"><i class="fa fa-play"></i> 0-5-20-99</button>
 
 ### Some notes about frequency
 
@@ -185,7 +185,7 @@ If you'd like to keep going up or down, just add or subtract 1200 to move up or 
 
 Let's use this new information to update our `play` function, and play the first few notes of "Mary Had A Little Lamb":
 
-```javascript
+```js
 function play(node, note, start, length) {
     var o = node.context.createOscillator();
     o.connect(node);
@@ -212,12 +212,12 @@ function play(node, note, start, length) {
 });
 ```
 
-{: .box-jsdemo.center }
-<button class="demo center" id="example5" onclick="example5.run()"><i class="fa fa-play"></i> Play</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" id="example5" onclick="example5.run()"><i class="fa fa-play"></i> Play</button>
 
-{: .box-note }
+{: .notice--info }
 **Math Tip:** In case you need it, it is pretty easy to calculate frequencies based on cents yourself. Note that
-cents represent a _difference between two frequencies_. Given an initial frequeny `f1`, and a cents value `c`,
+cents represent a _difference between two frequencies_. Given an initial frequency `f1`, and a cents value `c`,
 you can compute the modified frequency `f2 = f1 * Math.pow(2, c / 100)`.
 
 ### Playing overlapping notes
@@ -229,7 +229,7 @@ control the volume at the same time.
 In order to fix this, you can create multiple gain nodes, and rotate between them, ensuring that only one
 note is controlling the volume of that node at a time. Let's try it by making our notes above overlap:
 
-```javascript
+```js
 // Let's create a single primary gain node for overall music volume.
 // You can turn this up or down to control the music overall.
 var musicVolume = ctx.createGain();
@@ -253,8 +253,8 @@ var index = 0;
 });
 ```
 
-{: .box-jsdemo.center }
-<button class="demo center" id="example6" onclick="example6.run()"><i class="fa fa-play"></i> Play</button>
+{: .notice.text-center }
+<button class="btn btn--large btn--success" id="example6" onclick="example6.run()"><i class="fa fa-play"></i> Play</button>
 
 ### Scheduling your song
 
@@ -266,7 +266,7 @@ To accomplish this, you can have a function that you call periodically (perhaps 
 during your frame handling in your `requestAnimationFrame` callback). Here's an example of what that might
 look like:
 
-```javascript
+```js
 var song = [
     // ... lots of notes to schedule over time ...
 ];
@@ -292,7 +292,7 @@ function scheduleNotes() {
 }
 ```
 
-{: .box-warning }
+{: .notice--warning }
 Make sure to test how your game or application responds to minimizing the browser and changing tabs.
 As a general rule, the audio context will continue to play any scheduled notes, but all animation
 frames will pause. This will mean that if you rely on animation frames to play your music, it'll
@@ -310,9 +310,7 @@ Audio API](https://www.html5rocks.com/en/tutorials/webaudio/intro/), to get a la
 Another option is to use a pre-existing music library created especially for small
 games - check out the [js13k Resources](https://js13kgames.github.io/resources/) page for some ideas.
 
-<!-- Demo Javascript --->
-
-<script type="text/javascript">
+<script>
     function createAudioContext() {
         var AudioClass = window.AudioContext || window.webkitAudioContext();
         if (AudioClass) {

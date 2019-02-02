@@ -1,23 +1,26 @@
 ---
-layout: page
-title: About me
+title: About
+layout: single
+author_profile: true
 ---
 
-Hi there! My name is Elliot Nelson, and I'm a software engineer. This site is my personal blog, where I sometimes post articles about programming and software development, interspersed with long periods of silence.
+My name is Elliot Nelson, and I'm a software engineer. This website is my personal blog, where I sometimes post articles about programming or software development, separated by long periods of silence. All opinions are strictly my own.
 
-*Likes:*
+### What's good?
 
-- Ruby, Javascript, Groovy, C
-- Data structures and algorithms of all kinds
-- Unit testing
-- Building stuff
-- Roller coasters
-- The _#js13k_ game jam
-  - Check out [Raven](http://js13kgames.com/entries/raven), which took 3rd place in the 2018 js13k competition!
+ - [js13k](/js13k)
+ - [This blog!](/)
+ - The best editor: [VSCode](https://code.visualstudio.com/)
+   - The best theme: [An Old Hope](https://marketplace.visualstudio.com/items?itemName=dustinsanders.an-old-hope-theme-vscode#overview)
+   - The best font: [DejaVu Sans Mono](https://dejavu-fonts.github.io/) (@300 Font Weight)
+     - Worth mentioning: Inconsolata, Fira Mono, and Fira Code all look _cooler_ than DejaVu. But, I get the maximum number of hours of strain-free eyeballs with this font, so it's my workhorse.
+   - And of course, [https://github.com/VSCodeVim/Vim](VSCodeVim)
+ - [Compassionate Coding](https://medium.com/compassionate-coding)
+ - Ruby, Javascript, & Groovy
+ - All the other languages... grudgingly
+ - Roller coasters
+ - Unit testing
 
-*Dislikes:*
+### What's bad?
 
-- Python (sorry), Java (not sorry), Golang (gross)
-- Data analysis (too boring)
-- Peanut butter (too sticky)
-
+ - Who cares!

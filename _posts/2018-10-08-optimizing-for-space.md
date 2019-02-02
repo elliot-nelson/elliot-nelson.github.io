@@ -1,9 +1,9 @@
 ---
-layout: post
 title: Optimizing for Space
-subtitle: Creating the smallest possible js13k zip file
 tags: [javascript, js13k]
 ---
+
+## Creating the smallest possible js13k zip file
 
 In the [js13kgames competition](http://js13kgames.com), you have 30 days to produce a game that can be
 bundled into a ZIP file of no more than 13,312 bytes. If you find yourself frequently running into this
@@ -24,7 +24,7 @@ then some assets (usually images). All of these files have minification options 
 If you're using a gulp-based build system, you can use the gulp wrappers for all of these. A basic `gulpfile.js`
 that includes the tools above might look something like this:
 
-```javascript
+```js
 const gulp     = require('gulp');
 const terser   = require('gulp-terser');
 const imagemin = require('gulp-imagemin');
@@ -73,7 +73,7 @@ gulp.task('default', ['build', 'watch']);
 Before doing anything else to optimize for space, make sure you have a basic pipeline like this in place. The
 out-of-the-box minifiers will shave a significant amount off of your image and javascript file sizes.
 
-{: .box-note }
+{: .notice--info }
 **Note:** The example above just copies all the javascript files, minified separately. You typically don't want
 this, instead you want a single output javascript file included by your `index.html`. A simple, popular way
 to do this is to insert a `gulp-concat` step to smash all your javascript files into one. You may prefer using
@@ -99,7 +99,7 @@ to make them as small as possible (including eliminating unnecessary string conc
 exclusively: I recommend `let`. This will save you exactly 8 bytes in your zip file, since the keywords
 `const` and `var` will never exist in the output source code.
 
-{: .box-note }
+{: .notice--info }
 **Tip:** It's worth taking a second to consider the nature of a ZIP file itself, which is basically
 a collection of files compressed with Huffman encoding. What this means is that everything in your
 zip file is turned into a dictionary of commonly used phrases, and your files are stored as references
@@ -125,12 +125,12 @@ combined into a single image file, usually in a grid. (Although if
 you're willing to keep track of the locations of each image, you can pack sprites
 of different sizes into a sprite sheet as tight as you can get them.)
 
-Even with just a simple grid, though, the savings can be huge. For a concrete 
+Even with just a simple grid, though, the savings can be huge. For a concrete
 example, check out these 3 simple sprites for an imaginary game involving missiles
 and frogs:
 
-{: .box-jsdemo.center }
-![example sprite sheet](/img/spritesheet.png)
+{: .notice.text-center }
+![example sprite sheet](/assets/images/spritesheet.png)
 
 ```text
 # 3 Separate 64x64 PNGs (after minifying)
@@ -191,7 +191,7 @@ a bunch of stuff that by default is _not_ mangled (shortened) by terser.
 A good way to look for improvements in this area is to open up your minified javascript file,
 which will be thousands of characters of this kind of garbage:
 
-```javascript
+```js
 W(){let t=this.P(0);if(void 0===t&&(t=this.P(24))
 ,void 0===t&&(t=this.P(48)),void 0===t){let i=thi
 s.z(Math.floor(this.x/32),Math.floor(this.y/32));
@@ -215,7 +215,7 @@ or method is a private property and shouldn't be relied upon to exist. If most o
 and objects refer to their internal states (like `this._accelerationX`) with underscored names,
 which lets you know they are safe to mangle. You can enable this in your gulpfile like so:
 
-```javascript
+```js
     .pipe(terser({
         mangle: {
             properties: {
@@ -257,7 +257,7 @@ class names and object names (if any).
 
 Example of what this might look like in your gulpfile:
 
-```javascript
+```js
     .pipe(terser({
         mangle: {
             toplevel: true,
@@ -283,13 +283,13 @@ reserved property names as you write new code. If your project is already finish
 night of debugging while you get it set up! The result, though, will be a minifed product that can't
 get much smaller.
 
-{: .box-note }
+{: .notice--info }
 Note that terser does not care what object a property or method lives on; it cannot distinguish between,
 for example, `game.update()`, `player.update()` and `enemy.update()`. However, once it assigns a property
 a new mangled value, it will use it throughout your entire codebase, so it also doesn't _need_ to care -
 all references to `update` on all objects will be mangled to a new, shorter name.
 
-{: .box-warning }
+{: .notice--warning }
 Because terser won't mangle properties available on the common APIs of things like String, Math, and others,
 make sure not to reuse names like `slice`, `length`, etc. for your own properties. Your code will work
 fine, but those properties won't get mangled! Pick different names, or use the underscore trick from
