@@ -7,6 +7,9 @@
    ========================================================================== */
 
 .sidebar {
+  /* 7tonshark */
+  display: none;
+  /* /7tonshark */
   @include clearfix();
   @include breakpoint(max-width $large) {
     /* fix z-index order of follow links */
@@ -17,6 +20,9 @@
   }
 
   @include breakpoint($large) {
+    /* 7tonshark */
+    display: block;
+    /* /7tonshark */
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
     opacity: 0.75;

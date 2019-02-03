@@ -6,7 +6,7 @@ author_profile: true
 
 My name is Elliot Nelson, and I'm a software engineer. This website is my personal blog, where I sometimes post articles about programming or software development, separated by long periods of silence. All opinions are strictly my own.
 
-### What's good?
+## What's good?
 
  - [js13k](/js13k)
  - [This blog!](/)
@@ -21,6 +21,3 @@ My name is Elliot Nelson, and I'm a software engineer. This website is my person
  - Roller coasters
  - Unit testing
 
-### What's bad?
-
- - Who cares!
