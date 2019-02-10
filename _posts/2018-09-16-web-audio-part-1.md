@@ -1,6 +1,11 @@
 ---
 title: Web Audio API, Part 1
 tags: [javascript, js13k]
+excerpt: >-
+  Creating simple music using the Web Audio API: using Web Audio in a small javascript project, game, or
+  js13k entry.
+redirect_from:
+  - /web-audio-part-1/
 ---
 
 ## Creating simple music using the Web Audio API

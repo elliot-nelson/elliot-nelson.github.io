@@ -1,6 +1,11 @@
 ---
 title: PNG Storage
 tags: [javascript, js13k, png]
+excerpt: >-
+  Using PNG files to compress game data: can you save space by storing levels and
+  other assets as images?
+redirect_from:
+  - /png-storage/
 ---
 
 ## Using PNG files to compress game data

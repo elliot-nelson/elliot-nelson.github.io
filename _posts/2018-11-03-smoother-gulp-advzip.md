@@ -1,6 +1,8 @@
 ---
 title: Smoother gulp advzip
 tags: [javascript, js13k, gulp]
+redirect_from:
+  - /smoother-gulp-advzip/
 ---
 
 ## Streamline advzip usage in your gulp build

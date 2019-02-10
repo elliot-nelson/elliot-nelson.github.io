@@ -1,6 +1,8 @@
 ---
 title: Optimizing for Space
 tags: [javascript, js13k]
+redirect_from:
+  - /optimizing-for-space/
 ---
 
 ## Creating the smallest possible js13k zip file

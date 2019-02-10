@@ -1,5 +1,7 @@
 ---
 title: I'm back!
+redirect_from:
+  - /first-post/
 ---
 
 ## Resurrecting the personal blog

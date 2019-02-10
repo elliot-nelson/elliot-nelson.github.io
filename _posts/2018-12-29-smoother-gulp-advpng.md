@@ -1,6 +1,8 @@
 ---
 title: Smoother gulp advpng
 tags: [javascript, js13k, gulp]
+redirect_from:
+  - /smoother-gulp-advpng/
 ---
 
 ## Streamline advpng usage in your gulp build

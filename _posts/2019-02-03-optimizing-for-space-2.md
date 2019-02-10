@@ -1,11 +1,16 @@
 ---
 title: Optimizing for Space Part 2
 tags: [javascript, js13k, gulp]
+excerpt: >-
+  Adventures in eliminating bytes: make your zip files even smaller by eliminating
+  extra files altogether.
+redirect_from:
+  - /optimizing-for-space-2/
 ---
 
 ## Adventures in eliminating bytes
 
-In the quest for smaller and smaller zip files, one tool to keep in mind is eliminating
+In the quest for smaller and smaller zip files, one important tool is eliminating
 extra files altogether. Every file in the zip has an overhead of around 88 bytes - more
 depending on the length of the filename. This is a significant cost, and it's one reason
 a sprite sheet is so valuable (crunching all your PNGs into one PNG, for example).
