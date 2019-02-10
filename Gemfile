@@ -1,5 +1,6 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll"
-gem "minimal-mistakes-jekyll"
+gem 'github-pages'
+gem 'jekyll'
+gem 'minimal-mistakes-jekyll'
+gem 'jekyll-redirect-from'

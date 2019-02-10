@@ -257,6 +257,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll
+  jekyll-redirect-from
   minimal-mistakes-jekyll
 
 BUNDLED WITH

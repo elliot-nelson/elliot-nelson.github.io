@@ -218,7 +218,8 @@ sass:
 
 
 # Outputting
-permalink: /:categories/:title/
+permalink: /:year-:month-:day-:title/
+#permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -232,6 +233,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-redirect-from
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -241,7 +243,7 @@ whitelist:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
-
+  - jekyll-redirect-from
 
 # Archives
 #  Type
