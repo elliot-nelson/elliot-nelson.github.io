@@ -231,6 +231,9 @@ You can put pretty much anything in that regex, so if you use certain method nam
 want underscores everywhere in your code, feel free to add them in to mark them OK to mangle: for example,
 `regex: /^_|^render|^update|^drawSprite/`.
 
+{: .notice--info }
+**UPDATE 02/24/2019:** I now prefer mangling with the _reserved_ option, see suggestion #8 below.
+
 ## 7. Lose the shims
 
 While you're in there examining your minified output javascript, take a close look at the top of the file
@@ -296,6 +299,11 @@ Because terser won't mangle properties available on the common APIs of things li
 make sure not to reuse names like `slice`, `length`, etc. for your own properties. Your code will work
 fine, but those properties won't get mangled! Pick different names, or use the underscore trick from
 above (`_length`).
+
+{: .notice--info }
+**UPDATE 02/24/2019:** Terser is now quite good at reserving all known browser API methods by default,
+making this suggestion much easier. I now like this approach the most (just make sure you use the latest
+available version of terser).
 
 ## 9. Advanced compression
 
